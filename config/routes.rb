@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'roomchats/home'
-  devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root 'rooms#home'
+  resources :chats
+  resources :messages, only: [:create, :destroy]
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 end

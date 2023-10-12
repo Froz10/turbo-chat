@@ -7,8 +7,8 @@ import { application } from "./application"
 import ChatController from "./chat_controller"
 application.register("chat", ChatController)
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import HeaderController from "./header_controller"
+application.register("header", HeaderController)
 
 import ResetFormController from "./reset_form_controller"
 application.register("reset-form", ResetFormController)

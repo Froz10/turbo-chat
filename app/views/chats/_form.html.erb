@@ -1,8 +1,8 @@
 <%= form_with(
     model: chat,
     method: :post,
-    class: "p-3 border-t border-borderColor1 flex items-center") do |form| %>
-  <%= form.text_field :name, class: "flex-grow p-3 rounded-md border border-borderColor1",
+    class: "p-3 border-t flex items-center") do |form| %>
+  <%= form.text_field :name, class: "flex-grow p-3 rounded-md border",
   placeholder: "Create a new chat..." %>
   <%= form.button class: "ml-2 rounded-full bg-themeColorMain text-white w-10 h-10 flex justify-center items-center" do %>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">

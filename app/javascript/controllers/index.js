@@ -7,6 +7,9 @@ import { application } from "./application"
 import ChatController from "./chat_controller"
 application.register("chat", ChatController)
 
+import MessageController from "./message_controller"
+application.register("message", MessageController)
+
 import HeaderController from "./header_controller"
 application.register("header", HeaderController)
 

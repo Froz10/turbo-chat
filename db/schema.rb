@@ -14,13 +14,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_160126) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "chats", force: :cascade do |t|
+  create_table "chat_rooms", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_chats_on_name", unique: true
-    t.index ["user_id"], name: "index_chats_on_user_id"
+    t.index ["name"], name: "index_chat_rooms_on_name", unique: true
+    t.index ["user_id"], name: "index_chat_rooms_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -28,8 +28,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_160126) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "chat_id", null: false
-    t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.bigint "chat_room_id", null: false
+    t.index ["chat_room_id"], name: "index_messages_on_chat_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_160126) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "chats", "users"
-  add_foreign_key "messages", "chats"
+  add_foreign_key "chat_rooms", "users"
+  add_foreign_key "messages", "chat_rooms"
   add_foreign_key "messages", "users"
 end

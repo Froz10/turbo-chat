@@ -1,0 +1,18 @@
+<%= form_with(
+  model: @message,
+  method: :post,
+  data: {
+        controller: "reset-form",
+        action: "turbo:submit-end->reset-form#clearInput"
+    },
+  class:'flex items-center') do |f| %>
+  <%= f.text_field :body, 
+  id: 'chat-input', 
+  data: {
+    reset_form_target: "input"
+  },
+  placeholder: 'Type a message...',
+  class: 'w-full p-2 rounded-md border border-gray-400 focus:outline-none focus:border-blue-500' %>
+  <%= f.hidden_field :chat_room_id, value: @chat_room.id %>
+  <%= f.button data: {disable_with: false}, class: 'bg-indigo-500 text-white px-4 py-2 rounded-md ml-2' %>
+<% end %>

@@ -13,7 +13,7 @@ class ChatsController < ApplicationController
       end
     end
   end
-
+  #test
   private
 
   def chat_params
